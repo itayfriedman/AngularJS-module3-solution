@@ -8,11 +8,11 @@
   .directive('foundItems', FoundItemDirective)
 
   function FoundItemDirective() {
+console.log("FoundItemDirective");
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      // items: '<',
-      // myTitle: '@title',
+      items: '<',
       onRemove: '&'
     },
     controller: FoundItemDirectiveController,
@@ -36,10 +36,17 @@ function MenuSearchService($http) {
   var service = this;
 
 service.getMatchedMenuItems = function(searchTerm) {
-  var response  =  $http({
+console.log("getMatchedMenuItems");
+  return  $http({
     method: "GET",
     url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
+  }).then(function(response) {
+    var foundItems = response.data;
+    console.log("foundItems  ", foundItems);
+    
   });
+  }
+
 
   // return $http(...).then(function (result) {
   //     // process result and only keep items that match
