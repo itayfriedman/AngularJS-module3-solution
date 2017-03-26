@@ -8,28 +8,28 @@
   .directive('foundItems', FoundItemDirective)
 
   function FoundItemDirective() {
-
     var ddo = {
       templateUrl: 'foundItems.html',
-      scope: {
-        found: '<',
-        onRemove: '&'
-      },
-      controller: FoundItemDirectiveController,
-      controllerAs: 'items',
-      bindToController: true,
-    };
+      // scope: {
+      //   found: '<',
+      //   onRemove: '&'
+      // },
+      // controller: FoundItemDirectiveController,
+      // controllerAs: 'found',
+      // bindToController: true
 
-    return ddo;
-  }
+  };
 
-  function FoundItemDirectiveController() {
-    var found = this;
-    if (found.length = 0 ) {
-      return true;
-    }
+  return ddo;
+}
 
-  }
+//   function FoundItemDirectiveController() {
+// console.log(this);
+//     var found = this;
+//     if (is.) {
+//       return true;
+//     }
+// }
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
@@ -49,7 +49,12 @@
     .catch(function (error) {
       console.log("Someting went worng !");
     });
-  }
+  };
+
+  items.removeItem = function (itemIndex) {
+console.log(this);
+    items.founds.splice(itemIndex, 1);
+  };
 
   }
 
@@ -65,7 +70,6 @@
 
       var items = result.data.menu_items;
       var foundItems = [];
-      // var searchItem = "Egg";
 
             for (var i = 0; i < items.length; i++) {
               if (items[i].description.toLowerCase().indexOf(searchItem.toLowerCase()) >=0 ){

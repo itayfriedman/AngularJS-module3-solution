@@ -1,17 +1,8 @@
-<h3>Found Mach Item</h3>
-<ul>
-  <li ng-repeat="item in items.founds">
-    ({{ item.short_name }}), {{ item.name }}, {{ item.description }}
-    <button ng-click="ctrl.onRemove({index: $index});">Don't want this one!</button>
-  </li>
-</ul>
-<div class="error" ng-transclude></div>
-
-<!-- <div><br />
-<h3> Found Items</h3>
+<h3>Found Mach Item !</h3>
+<!-- ###{{found.founds.length}}### -->
 <ul>
     <li ng-repeat="item in items.founds">
       ({{ item.short_name }}), {{ item.name }}, {{ item.description }}
+      <button ng-click="items.removeItem(index);">Don't want this one!</button>
     </li>
 </ul>
-</div> -->
