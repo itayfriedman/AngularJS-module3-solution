@@ -10,10 +10,10 @@
   function FoundItemDirective() {
     var ddo = {
       templateUrl: 'foundItems.html',
-      // scope: {
-      //   found: '<',
-      //   onRemove: '&'
-      // },
+      scope: {
+        found: '<',
+        onRemove: '&'
+      },
       // controller: FoundItemDirectiveController,
       // controllerAs: 'found',
       // bindToController: true
@@ -24,20 +24,21 @@
 }
 
 //   function FoundItemDirectiveController() {
-// console.log(this);
-//     var found = this;
-//     if (is.) {
-//       return true;
-//     }
+//     if( == undefined || isEmpty(found)){
+//       items.founds = [];
+//       return false;
+//     };
+//
+//
 // }
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var items = this;
     items.searchItem = "";
-
+console.log(items.searchItem);
   items.nerrowIt = function () {
-    if (items.searchItem === ""){
+    if (items.searchItem === "" || undefined){
       items.founds =[];
       return;
     }
