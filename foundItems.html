@@ -2,7 +2,7 @@
 <ul>
   <li ng-repeat="item in items.founds">
     ({{ item.short_name }}), {{ item.name }}, {{ item.description }}
-    <button ng-click="item.onRemove({index: $index});">Don't want this one!</button>
+    <button ng-click="ctrl.onRemove({index: $index});">Don't want this one!</button>
   </li>
 </ul>
 <div class="error" ng-transclude></div>

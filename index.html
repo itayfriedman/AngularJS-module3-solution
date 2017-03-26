@@ -13,24 +13,17 @@
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model="items.searchItem">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="items.nerrowIt()">Narrow It Down For Me!</button>
     </div>
 
     <!-- found-items should be implemented as a component -->
 
 
-    <found-items found-items="...." on-remove="....">
-      <div><br />
-      <h3> Found Items</h3>
-      <ul>
-          <li ng-repeat="item in items.founds">
-            ({{ item.short_name }}), {{ item.name }}, {{ item.description }}
-          </li>
-      </ul>
-    </div>
+    <found-items found-items="...." on-remove="items.removeItem(index)">
+
     </found-items>
   </div>
 
