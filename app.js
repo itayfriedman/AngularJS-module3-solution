@@ -14,29 +14,28 @@
         found: '<',
         onRemove: '&'
       },
-      // controller: FoundItemDirectiveController,
-      // controllerAs: 'found',
-      // bindToController: true
+      controller: FoundItemDirectiveController,
+      controllerAs: 'list',
+      bindToController: true
 
   };
 
   return ddo;
 }
 
-//   function FoundItemDirectiveController() {
-//     if( == undefined || isEmpty(found)){
-//       items.founds = [];
-//       return false;
-//     };
-//
-//
-// }
+  function FoundItemDirectiveController() {
+    var list =this;
+    list.isEmpty = function() {
+      return list.found != undefined && list.found.length === 0;
+    }
+  }
+
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var items = this;
     items.searchItem = "";
-console.log(items.searchItem);
+
   items.nerrowIt = function () {
     if (items.searchItem === "" || undefined){
       items.founds =[];
@@ -53,7 +52,7 @@ console.log(items.searchItem);
   };
 
   items.removeItem = function (itemIndex) {
-console.log(this);
+
     items.founds.splice(itemIndex, 1);
   };
 
